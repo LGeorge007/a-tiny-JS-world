@@ -1,31 +1,71 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
+   Code repository: https://github.com/LGeorge007/a-tiny-JS-world
+
+   Web app: https://github.com/LGeorge007/kottans-frontend
    */
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+const dog = {
+   species: "dog",
+   name: "Vasiliy",
+   legs: 4,
+   hands: 0,
+   gender: "male",
+   friends: ["Bublik", "Beem"],
+   saying: "Woof woof!",
+};
 
+const cat = {
+   species: "cat",
+   name: "Murkka",
+   legs: 4,
+   hands: 0,
+   gender: "female",
+   friends: ["Barsik", "Murzik", "Felix"],
+   saying: "Meow meow!",
+};
+
+const woman = {
+   species: "human",
+   name: "Larisa",
+   legs: 2,
+   hands: 2,
+   gender: "female",
+   friends: ["Irina", "Vlad", "Marina"],
+   saying: "Hi!",
+};
+
+const catWoman = {
+   species: "superhero human",
+   name: "Cat woman",
+   legs: 2,
+   hands: 2,
+   gender: "female",
+   friends: ["Batman", "all cats in the world"],
+   saying: cat.saying,
+};
+
+const man = {
+   species: "human",
+   name: "Boris",
+   legs: 2,
+   hands: 2,
+   gender: "male",
+   friends: ["Vladimir", "Mariya", "Oksana"],
+   saying: "Hello!",
+};
+
+const message = function(inhabitant) {
+   return `I'm a ${inhabitant.species}. My name is ${inhabitant.name}. My gender is ${inhabitant.gender}. ` + ((inhabitant.hands !== 0)? `I have ${inhabitant.hands} hands and ${inhabitant.legs} legs. ` : `I have ${inhabitant.legs} paws. `) + `Also I have a friends: ${inhabitant.friends.join(", ")}. ${inhabitant.saying}`;
+};
+
+const inhabitants = [dog, cat, man, woman, catWoman];
 
 // ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+/* Use print(message) for output.*/
+print("Print created objects","h1");
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+inhabitants.forEach(el => print(message(el), "p"));
